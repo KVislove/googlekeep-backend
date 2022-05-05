@@ -31,6 +31,11 @@ public class GlobalExceptionHandler {
             String message= error.getDefaultMessage();
             errorResponse.put(fieldName,message);
         });
+        String errMessage="Please provide valid inputs for ";
+        for(String key: errorResponse.keySet()){
+            errMessage=errMessage.concat(key+",");
+        }
+        errorResponse.put("message",errMessage.substring(0,errMessage.lastIndexOf(","))+" !!");
         return new ResponseEntity<>(errorResponse,HttpStatus.BAD_REQUEST);
     }
 }

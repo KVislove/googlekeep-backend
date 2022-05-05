@@ -19,6 +19,7 @@ public class UserDto {
     @Size(min = 3,max = 10,message = "username must be within 3-10 characters !!")
     private String username;
 
+    @NotEmpty
     @Email(message = "Please provide valid email !!")
     private String email;
 
